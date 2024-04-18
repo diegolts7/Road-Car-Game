@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    top: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.conteiner {
+    background-color: #003785;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.conteiner img {
+    height: 81vh;
+}
+.painelJogo {
+    height: 80vh;
+    width: 50%;
+    border: 20px solid rgb(26, 24, 24);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#backgroundJogo {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+#carPlayer {
+    width: 50px;
+    height: 85px;
+    position: absolute;
+    margin-left: -13%;
+    /*animation: animation 3s infinite linear;*/
+}
+@keyframes animation {
+    from {
+        margin-top: 0vh;
+    } to {
+        margin-top: 63vh;
+    }
+}
