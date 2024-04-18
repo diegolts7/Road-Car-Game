@@ -4,10 +4,9 @@
     margin: 0;
     top: 0;
     padding: 0;
+    bottom: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15pt;
-    font-weight: bold;
 }
 
 /* conteiner principal que abriga todos os outros*/
@@ -28,8 +27,8 @@
     width: 50%;
     height: 80vh;
     margin-top: 10vh;
-    position: fixed;
-    display: flex;
+    position: absolute;
+    display: none;
     align-items: center;
     justify-content: center;
     
@@ -55,6 +54,7 @@
 
 .inicioJogo p {
     font-size: 30px;
+    font-weight: bold;
 }
 
 /* div icones que abriga os elementos icones e estiliza eles*/
@@ -68,6 +68,8 @@
     color: rgba(255,255,255,0.5);
     border-radius: 10px;
     padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* botao referente ao inicio de jogo. sua estilização e seu efeitos de hover e sua animação quando for ativo*/
@@ -80,6 +82,8 @@
     background-color: rgba(0,0,0, 0.3);
     border: 4px solid white;
     color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
 .botaoInicioJogo:hover {
     background-color: orangered;
@@ -92,6 +96,28 @@
     from {
         background-color: rgba(0,0,0, 0.3);
     }
+}
+
+/* estilizando o footer e os elementos dentro dele*/
+
+footer {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    position: absolute;
+    margin-top: auto;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+footer p {
+    font-size: 12px;
+}
+footer a {
+    color: white;
 }
 
 /* ajustando a altura das imagens dos controles laterais*/
