@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <title>Game Car</title>
 </head>
 <body>
     <div class="conteiner">  <!-- conteiner principal-->
+        <div class="modalInicioJogo">  <!-- modal do inicio do jogo-->
+            <div class="inicioJogo">  <!-- modal inicio do jog centralizado-->
+                <p>CONTROLES</p>
+                <div class="icones">
+                    <i class="fas fa-solid fa-arrow-left fa-2x"></i>
+                    <i class="fas fa-solid fa-arrow-right fa-2x"></i>
+                </div>
+                <input type="button" class="botaoInicioJogo" value="Iniciar" id="botaoInicioJogo">
+            </div>
+        </div>
         <img src="img/nintendo-switch-controller-clipart-3-removebg-preview (1).png" alt="">  <!-- img do controle lateral esquerdo-->
         <div class="painelJogo">  <!-- div central que abriga os elemntos do jogo-->
             <img src="img/images.jpeg" alt="" id="backgroundJogo">  <!-- img de fundo do conteiner central-->
-            <!--<img src="img/car.png" alt="" id="carMaquinaLeft">-->
-            <!--<img src="img/carMaquinaYellow.png" alt="" id="carMaquinaRigth">-->  <!-- img do carro da maquina a direita-->
+            <img src="img/car.png" alt="" id="carMaquinaLeft">  <!-- img do carro da maquina a esquerda-->
+            <img src="img/carMaquinaYellow.png" alt="" id="carMaquinaRigth">  <!-- img do carro da maquina a direita-->
             <img src="img/carPlayer.png" alt="" id="carPlayer">  <!-- img do carro do jogador-->
         </div>
         <img src="img/nintendo-switch-controller-clipart-3-removebg-preview (2).png" alt="">  <!-- img do controle lateral direito-->
