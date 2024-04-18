@@ -1,9 +1,14 @@
+/*defindo pré definições para todos os elementos*/
+
 * {
     margin: 0;
     top: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* conteiner principal que abriga todos os outros*/
+
 .conteiner {
     background-color: #003785;
     width: 100%;
@@ -12,9 +17,15 @@
     align-items: center;
     display: flex;
 }
+
+/* ajustando a altura das imagens dos controles laterais*/
+
 .conteiner img {
     height: 81vh;
 }
+
+/* conteiner central onde os elemtos do jogo vao ser incluidos*/
+
 .painelJogo {
     height: 80vh;
     width: 50%;
@@ -24,23 +35,76 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
+
+/* imagem que esta sendo utilizada como fundo do jogo*/
+
 #backgroundJogo {
     height: 100%;
     width: 100%;
     position: absolute;
 }
-#carPlayer {
+
+/* estilização da imagem que será o carro da maquina na parte esqueda da tela*/
+
+#carMaquinaLeft {
     width: 50px;
     height: 85px;
+    margin-top: -12vh;
     position: absolute;
     margin-left: -13%;
-    /*animation: animation 3s infinite linear;*/
+    /*animation: animationCarMaquina 4s infinite linear;*/
 }
-@keyframes animation {
+
+/* estilização da imagem que será o carro da maquina na parte direita da tela*/
+
+#carMaquinaRigth {
+    width: 50px;
+    height: 85px;
+    margin-top: 0vh;
+    position: absolute;
+    margin-left: 13%;
+    /*animation: animationCarMaquina 4s infinite linear;*/
+}
+
+/* estilização do carro do jogador que ira ter animações para esquerda e para direita*/
+
+#carPlayer {
+    width: 120px;
+    height: 100px;
+    margin-top: 62vh;
+    position: absolute;
+    margin-left: 13%;
+    /*animation: animationCarPlayerLeft .4s forwards ease;*/
+}
+
+/* animaçao do carro da maquina vir de cima para baixo*/
+
+@keyframes animationCarMaquina {
     from {
-        margin-top: 0vh;
+        margin-top: -12vh;
     } to {
-        margin-top: 63vh;
+        margin-top: 75vh;
+    }
+}
+
+/* animação do carro do jogador fazendo o movimento de ir para a esquerda*/
+
+@keyframes animationCarPlayerLeft {
+    from {
+        margin-left: 13%;
+    } to {
+        margin-left: -13%;
+    }
+}
+
+/* animação do carro do jogador fazendo o movimento de ir para a direita*/
+
+@keyframes animationCarPlayerRigth {
+    from {
+        margin-left: -13%;
+    } to {
+        margin-left: 13%;
     }
 }
