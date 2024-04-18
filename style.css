@@ -28,7 +28,7 @@
     height: 80vh;
     margin-top: 10vh;
     position: absolute;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     
@@ -96,6 +96,45 @@
     from {
         background-color: rgba(0,0,0, 0.3);
     }
+}
+
+/* ajustando a div escore que abriga os elementos da pontuação do jogo*/
+
+.score {
+    z-index: 1;
+    margin-top: 7%;
+    margin-left: -33%;
+    position: absolute;
+    width: 13%;
+    height: 8vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.score p {
+    font-size: 20px;
+    font-weight: bold;
+    color:black;
+}
+
+/* estilizando os conteiners dentro de score*/
+
+.scoreInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: 5px;
+    width: 100%;
+}
+.scorePont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    width: 100%;
 }
 
 /* estilizando o footer e os elementos dentro dele*/
