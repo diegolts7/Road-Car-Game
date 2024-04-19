@@ -3,6 +3,7 @@
 //elemento de audio
 
 const audio = new Audio("sons/carSound1.mp3");
+const audioBatida = new Audio("sons/carColision.mp3");
 
 //elemento dos modais
 
@@ -24,12 +25,17 @@ const carPlayer = document.querySelector("#carPlayer");
 // variaveis operacionais
 
 let left = false;
-let pontuação = 0;
+
+let recorde = localStorage.getItem("recorde") !== null ? Number(localStorage.getItem("recorde")) : 0 ;
+scoreRecorde.textContent = `${recorde}`;
+
 let contPontuacao = 0;
 let loop;
+
 // eventos
 
 btnInicioJogo.addEventListener("click", iniciaJogo);
+modalGameOver.addEventListener("click", reiniciaJogo);
 
 
 // funções
@@ -40,7 +46,6 @@ function iniciaJogo() {
     modalScore.style.display = "flex";
     iniciaAudio();
     lancarCar();
-    document.addEventListener("keydown", carPlayerMoove);
     loop = setInterval(loopJogo, 10);
     
 }
@@ -48,6 +53,9 @@ function iniciaJogo() {
 function iniciaAudio(){
     audio.loop = true;
     audio.play();
+}
+function iniciaAudioBatidad() {
+    audioBatida.play();
 }
 
 function carPlayerMoove(event) {
@@ -66,16 +74,54 @@ function carPlayerMoove(event) {
 }
 function loopJogo() {
     scorePontuacao.textContent = `${contPontuacao/100}`;
+    document.addEventListener("keydown", carPlayerMoove);
     let posicaoCarRigth = +getComputedStyle(carMaquinaRight).marginTop.replace("px", "");
     let posicaoCarLeft = +getComputedStyle(carMaquinaLeft).marginTop.replace("px", "");
-    console.log(posicaoCarRigth);
-
+    let posicaoCarPlayer = +getComputedStyle(carPlayer).marginLeft.replace("px", "");
+    if((posicaoCarRigth >= 385 && left === false) || (posicaoCarLeft >= 385 && left === true)){
+        iniciaAudioBatidad();
+        if(!left){
+            carMaquinaRight.style.marginTop = `${posicaoCarRigth}px`;
+            carMaquinaLeft.style.marginTop = `${posicaoCarLeft}px`;
+            carPlayer.style.marginLeft = `${posicaoCarPlayer}px`;
+            gameOver();
+        }else{
+            carMaquinaLeft.style.marginTop = `${posicaoCarLeft}px`;
+            carMaquinaRight.style.marginTop = `${posicaoCarRigth}px`;
+            carPlayer.style.marginLeft =`${posicaoCarPlayer}px`;
+            gameOver();
+        }
+    }
     contPontuacao += 10;
 }
 
 function lancarCar() {
-    carMaquinaRight.style.animation = "animationCarMaquina 2.2s infinite linear";
+    carMaquinaRight.classList.add("animation");
     setTimeout(()=>{
-        carMaquinaLeft.style.animation = "animationCarMaquina 2.2s infinite linear";
+        carMaquinaLeft.classList.add("animation");
     },1100);
+}
+function gameOver() {
+    carMaquinaRight.classList.remove("animation");
+    carMaquinaLeft.classList.remove("animation");
+    carPlayer.src = "img/carPlayerColision.png";
+    if((contPontuacao/100) >= recorde){
+        recorde = contPontuacao/100;
+        scoreRecorde.textContent = `${recorde}`;
+        localStorage.setItem("recorde", `${recorde}`);
+    }
+    contPontuacao = 0;
+    audio.pause();
+    clearInterval(loop);
+    modalGameOver.style.display = "flex";    
+}
+function reiniciaJogo(){
+    carPlayer.src = "img/carPlayer.png";
+    modalGameOver.style.display = "none";
+    modalIniciojogo.style.display = "flex";
+    carPlayer.style.display = "none";
+    modalScore.style.display = "none";
+    carMaquinaLeft.style.marginTop = "-12vh";
+    carMaquinaRight.style.marginTop = "-12vh";
+
 }

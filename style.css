@@ -45,7 +45,12 @@
     border-radius: 20px;
     background: linear-gradient(to right, orangered, orange);
     box-shadow: 0px 0px 30px rgba(0,0,0,1);
-
+    cursor: pointer;
+}
+.gameOver:hover {
+    width: 33%;
+    height: 23%;
+    transition: .3s;
 }
 .gameOver p {
     font-weight: bold;
@@ -242,6 +247,10 @@ footer a {
 
 /* animaçao do carro da maquina vir de cima para baixo*/
 
+.animation {
+    animation: animationCarMaquina 2s infinite linear;
+}
+
 @keyframes animationCarMaquina {
     from {
         margin-top: -12vh;
@@ -249,6 +258,8 @@ footer a {
         margin-top: 75vh;
     }
 }
+
+
 
 /* animação do carro do jogador fazendo o movimento de ir para a esquerda*/
 
