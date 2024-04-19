@@ -215,7 +215,7 @@ footer a {
     margin-top: -12vh;
     position: absolute;
     margin-left: -13%;
-    /*animation: animationCarMaquina 4s infinite linear;*/
+    
 }
 
 /* estilização da imagem que será o carro da maquina na parte direita da tela*/
@@ -226,7 +226,6 @@ footer a {
     margin-top: -12vh;
     position: absolute;
     margin-left: 13%;
-    /*animation: animationCarMaquina 4s infinite linear;*/
 }
 
 /* estilização do carro do jogador que ira ter animações para esquerda e para direita*/
